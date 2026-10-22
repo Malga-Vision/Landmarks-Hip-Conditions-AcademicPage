@@ -1,6 +1,6 @@
 # Automated Landmark Detection for Hip Conditions: Cross-Modality Validation
 
-This is the academic project page for the ISBI 2026 accepted paper:
+This is the [academic project page](https://malga-vision.github.io/Landmarks-Hip-Conditions-AcademicPage/) for the ISBI 2026 accepted paper:
 
 **Automated Landmark Detection for assessing hip conditions: A Cross-Modality Validation of MRI versus X-ray**
 
@@ -31,13 +31,11 @@ In this work, we conduct a matched-cohort validation study (89 patients, paired 
 
 We formulate FAI angle computation as a landmark detection problem. For each hip, we localise four annotated anatomical keypoints: femoral head centre (FHC), neck-axis point (NA), lateral acetabular edge (LAE), and lateral cam point (LCP). We employ UNet++ with a ResNet18 encoder (ImageNet-initialised) trained with heatmap regression.
 
-## Website
+## About this page
 
-This page is built using the [Academic Project Page Template](https://github.com/anonymity99/academic-page-template) and is hosted on GitHub Pages.
+Static page built with the [MaLGa academic page template](https://github.com/Malga-Vision/malga-academic-page-template): no build step, no third-party scripts. Preview it locally with `python -m http.server` and open http://localhost:8000.
 
-## License
-
-<a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.
+Before pushing, run `python tools/page_guard.py`. The Pages workflow runs the same checks on every push and publishes the page only when they pass.
 
 ## Citation
 
