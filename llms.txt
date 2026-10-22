@@ -15,6 +15,7 @@ Key results (mean ± std over three runs):
 - [Paper (IEEE Xplore)](https://doi.org/10.1109/ISBI61048.2026.11515938)
 - [Project page](https://malga-vision.github.io/Landmarks-Hip-Conditions-AcademicPage/)
 - [Code](https://github.com/Malga-Vision/Landmarks-Hip-Conditions)
+- [ISBI 2026 presentation slides (PDF)](https://malga-vision.github.io/Landmarks-Hip-Conditions-AcademicPage/static/pdfs/Landmarks-Hip-Conditions_ISBI2026_slides.pdf)
 
 ## Citation
 @inproceedings{divia2026hip,

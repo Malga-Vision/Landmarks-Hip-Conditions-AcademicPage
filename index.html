@@ -159,6 +159,21 @@
       },
       "workExample": {
         "@id": "https://malga-vision.github.io/Landmarks-Hip-Conditions-AcademicPage/#code"
+      },
+      "subjectOf": {
+        "@id": "https://malga-vision.github.io/Landmarks-Hip-Conditions-AcademicPage/#slides"
+      }
+    },
+    {
+      "@type": "MediaObject",
+      "@id": "https://malga-vision.github.io/Landmarks-Hip-Conditions-AcademicPage/#slides",
+      "name": "Automated Landmark Detection for Assessing Hip Conditions: ISBI 2026 presentation slides",
+      "contentUrl": "https://malga-vision.github.io/Landmarks-Hip-Conditions-AcademicPage/static/pdfs/Landmarks-Hip-Conditions_ISBI2026_slides.pdf",
+      "encodingFormat": "application/pdf",
+      "thumbnailUrl": "https://malga-vision.github.io/Landmarks-Hip-Conditions-AcademicPage/static/images/slides_preview.jpg",
+      "inLanguage": "en",
+      "about": {
+        "@id": "https://malga-vision.github.io/Landmarks-Hip-Conditions-AcademicPage/#article"
       }
     },
     {
@@ -254,7 +269,7 @@
               <span class="author-block">
                 <a href="https://scholar.google.com/citations?user=riK7DscAAAAJ&hl=it" target="_blank">Francesca Odone</a><sup>1</sup>,</span>
               <span class="author-block">
-                <a href="https://scholar.google.com/citations?user=LNqbJ9sAAAAJ&hl=it" target="_blank">Sión Glyn-Jones</a><sup>2</sup>,</span>
+                <a href="https://scholar.google.com/citations?user=LNqbJ9sAAAAJ&hl=it" target="_blank">Siôn Glyn-Jones</a><sup>2</sup>,</span>
               <span class="author-block">
                 <a href="https://scholar.google.com/citations?hl=it&user=W6Jwb1UAAAAJ" target="_blank">Irina Voiculescu</a><sup>3</sup>
               </span>
@@ -277,9 +292,9 @@
                   </a>
                 </span>
                 <span class="link-block">
-                  <a href="static/pdfs/" target="_blank" class="external-link button is-normal is-rounded is-dark" onclick="alert('Poster coming soon');return false;">
-                    <span class="icon"><i class="fas fa-file-pdf"></i></span>
-                    <span>Poster (PDF)</span>
+                  <a href="static/pdfs/Landmarks-Hip-Conditions_ISBI2026_slides.pdf" target="_blank" class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon"><i class="fas fa-file-powerpoint"></i></span>
+                    <span>Slides (PDF)</span>
                   </a>
                 </span>
                 <span class="link-block">
@@ -338,7 +353,7 @@
               In this work, we conduct a matched-cohort validation study (89 patients, paired MRI/X-ray) using standard heatmap regression architectures to assess cross-modality clinical equivalence. Seen that landmark detection has been proven effective on X-rays, we show that MRI also achieves equivalent localisation and diagnostic accuracy for cam-type impingement. Our method demonstrates clinical feasibility for FAI assessment in coronal views of 3D MRI volumes, opening the possibility for volumetric analysis through placing further landmarks.
             </p>
             <p>
-              These results support integrating automated FAI assessment into routine MRI workflows, eliminating redundant X-ray exposure while enabling volumetric analysis.
+              These results support integrating automated FAI assessment into routine MRI workflows. Code is released at <a href="https://github.com/Malga-Vision/Landmarks-Hip-Conditions">https://github.com/Malga-Vision/Landmarks-Hip-Conditions</a>.
             </p>
           </div>
         </div>
@@ -552,6 +567,11 @@
                   <td style="padding:10px; border:1px solid #ddd;">100.00 / 85.29</td>
                   <td style="padding:10px; border:1px solid #ddd;">100.00 / 85.29</td>
                 </tr>
+                <tr>
+                  <td style="padding:10px; border:1px solid #ddd;">TP / FP / TN / FN</td>
+                  <td style="padding:10px; border:1px solid #ddd;">6 / 0 / 29 / 5</td>
+                  <td style="padding:10px; border:1px solid #ddd;">6 / 0 / 29 / 5</td>
+                </tr>
               </tbody>
             </table>
           </div>
@@ -640,6 +660,19 @@
                   <td style="padding:10px; border:1px solid #ddd;">69.83±6.85</td>
                 </tr>
                 <tr>
+                  <td style="padding:10px; border:1px solid #ddd;" rowspan="2">DPT (ResNet18)</td>
+                  <td style="padding:10px; border:1px solid #ddd;">✗</td>
+                  <td style="padding:10px; border:1px solid #ddd;">4.49±0.54</td>
+                  <td style="padding:10px; border:1px solid #ddd;">48.34±3.79</td>
+                  <td style="padding:10px; border:1px solid #ddd;">67.50±2.50</td>
+                </tr>
+                <tr>
+                  <td style="padding:10px; border:1px solid #ddd;">✓</td>
+                  <td style="padding:10px; border:1px solid #ddd;">4.44±0.19</td>
+                  <td style="padding:10px; border:1px solid #ddd;">50.21±3.02</td>
+                  <td style="padding:10px; border:1px solid #ddd;">70.17±6.56</td>
+                </tr>
+                <tr>
                   <td style="padding:10px; border:1px solid #ddd;" rowspan="2">DPT (MaxViT-Base)</td>
                   <td style="padding:10px; border:1px solid #ddd;">✗</td>
                   <td style="padding:10px; border:1px solid #ddd;">3.91±0.87</td>
@@ -705,6 +738,22 @@
               <b>For the α-angle</b>, both modalities underestimate clinician measurements (X-ray: -2.68°, MRI: -7.39°) with broad LoA (X-ray: ±35.3°, MRI: ±38.3°). X-ray errors remain magnitude-independent (p=0.518), whereas MRI shows proportional bias (p=0.010), reflecting slice-selection sensitivity. Despite these biases, both modalities achieve reliable cam-type classification (specificity 100%, sensitivity 54.6%), indicating that residual variability mainly arises from landmark ambiguity rather than modality differences.
             </p>
           </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Slides -->
+  <section class="section" id="slides">
+    <div class="container is-max-desktop">
+      <h2 class="title is-3 has-text-centered">ISBI 2026 presentation</h2>
+      <div class="columns is-centered">
+        <div class="column is-8">
+          <a href="static/pdfs/Landmarks-Hip-Conditions_ISBI2026_slides.pdf" target="_blank">
+            <img src="static/images/slides_preview.jpg" width="1000" height="563" loading="lazy" style="width:100%; height:auto; border:1px solid #ddd;"
+                 alt="Title slide of the ISBI 2026 presentation: Automated Landmark Detection for Assessing Hip Conditions, A Cross-Modality Validation of MRI Versus X-Ray">
+          </a>
+          <p class="has-text-centered" style="font-size:0.9rem;"><a href="static/pdfs/Landmarks-Hip-Conditions_ISBI2026_slides.pdf" target="_blank">Download the slides (PDF, 14 slides)</a></p>
         </div>
       </div>
     </div>
