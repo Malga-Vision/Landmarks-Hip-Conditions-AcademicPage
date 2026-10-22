@@ -1,28 +1,239 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
   <meta charset="utf-8">
-  <meta name="description" content="Automated Landmark Detection for assessing hip conditions: A Cross-Modality Validation of MRI versus X-ray — ISBI 2026 accepted paper.">
-  <meta name="keywords" content="landmark detection, hip conditions, MRI, X-ray, FAI, femoroacetabular impingement, medical imaging, deep learning">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>Automated Landmark Detection for Hip Conditions — Cross-Modality Validation</title>
-  <link rel="icon" type="image/x-icon" href="static/images/favicon.ico">
-  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
+  <title>Automated Hip Landmark Detection on MRI vs. X-ray (ISBI 2026)</title>
+  <meta name="description" content="ISBI 2026: first MRI vs. X-ray validation of automated hip landmark detection (89 paired patients): 2.98 vs. 3.02 mm error and 87.5% cam-FAI accuracy on both.">
+  <meta name="keywords" content="hip landmark detection, femoroacetabular impingement, FAI, MRI, X-ray, cross-modality validation, alpha angle, LCE angle, heatmap regression, medical imaging, ISBI 2026">
+  <meta name="author" content="Roberto Di Via, Vito Paolo Pastore, Francesca Odone, Siôn Glyn-Jones, Irina Voiculescu">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <link rel="canonical" href="https://malga-vision.github.io/Landmarks-Hip-Conditions-AcademicPage/">
 
+  <!-- Open Graph -->
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Hip Landmark Detection, MRI vs. X-ray (ISBI 2026)">
+  <meta property="og:title" content="Automated Landmark Detection for Assessing Hip Conditions: A Cross-Modality Validation of MRI Versus X-Ray">
+  <meta property="og:description" content="ISBI 2026: first MRI vs. X-ray validation of automated hip landmark detection (89 paired patients): 2.98 vs. 3.02 mm error and 87.5% cam-FAI accuracy on both.">
+  <meta property="og:url" content="https://malga-vision.github.io/Landmarks-Hip-Conditions-AcademicPage/">
+  <meta property="og:image" content="https://malga-vision.github.io/Landmarks-Hip-Conditions-AcademicPage/static/images/social_card.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Automated hip landmark detection on paired T1 MRI (top) and X-ray (bottom): predicted heatmaps, alpha angle and LCE angle versus ground truth">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Automated Hip Landmark Detection on MRI vs. X-ray (ISBI 2026)">
+  <meta name="twitter:description" content="ISBI 2026: first MRI vs. X-ray validation of automated hip landmark detection (89 paired patients): 2.98 vs. 3.02 mm error and 87.5% cam-FAI accuracy on both.">
+  <meta name="twitter:image" content="https://malga-vision.github.io/Landmarks-Hip-Conditions-AcademicPage/static/images/social_card.jpg">
+
+  <!-- Google Scholar -->
+  <meta name="citation_title" content="Automated Landmark Detection for Assessing Hip Conditions: A Cross-Modality Validation of MRI Versus X-Ray">
+  <meta name="citation_author" content="Di Via, Roberto">
+  <meta name="citation_author" content="Pastore, Vito Paolo">
+  <meta name="citation_author" content="Odone, Francesca">
+  <meta name="citation_author" content="Glyn-Jones, Siôn">
+  <meta name="citation_author" content="Voiculescu, Irina">
+  <meta name="citation_publication_date" content="2026/04/08">
+  <meta name="citation_conference_title" content="2026 IEEE 23rd International Symposium on Biomedical Imaging (ISBI)">
+  <meta name="citation_publisher" content="IEEE">
+  <meta name="citation_firstpage" content="1">
+  <meta name="citation_lastpage" content="4">
+  <meta name="citation_doi" content="10.1109/ISBI61048.2026.11515938">
+  <meta name="citation_arxiv_id" content="2601.18555">
+  <meta name="citation_pdf_url" content="https://arxiv.org/pdf/2601.18555">
+
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "ScholarlyArticle",
+      "@id": "https://malga-vision.github.io/Landmarks-Hip-Conditions-AcademicPage/#article",
+      "headline": "Automated Landmark Detection for Assessing Hip Conditions: A Cross-Modality Validation of MRI Versus X-Ray",
+      "name": "Automated Landmark Detection for Assessing Hip Conditions: A Cross-Modality Validation of MRI Versus X-Ray",
+      "abstract": "Many clinical screening decisions are based on angle measurements. In particular, FemoroAcetabular Impingement (FAI) screening relies on angles traditionally measured on X-rays. However, assessing the height and span of the impingement area requires also a 3D view through an MRI scan. The two modalities inform the surgeon on different aspects of the condition. In this work, we conduct a matched-cohort validation study (89 patients, paired MRI/X-ray) using standard heatmap regression architectures to assess cross-modality clinical equivalence. Seen that landmark detection has been proven effective on X-rays, we show that MRI also achieves equivalent localisation and diagnostic accuracy for cam-type impingement. Our method demonstrates clinical feasibility for FAI assessment in coronal views of 3D MRI volumes, opening the possibility for volumetric analysis through placing further landmarks. These results support integrating automated FAI assessment into routine MRI workflows. Code is released at https://github.com/Malga-Vision/Landmarks-Hip-Conditions.",
+      "description": "ISBI 2026: first MRI vs. X-ray validation of automated hip landmark detection (89 paired patients): 2.98 vs. 3.02 mm error and 87.5% cam-FAI accuracy on both.",
+      "author": [
+        {
+          "@type": "Person",
+          "name": "Roberto Di Via",
+          "sameAs": "https://scholar.google.com/citations?user=qGS6cv4AAAAJ",
+          "affiliation": {
+            "@id": "https://malga-vision.github.io/Landmarks-Hip-Conditions-AcademicPage/#unige"
+          }
+        },
+        {
+          "@type": "Person",
+          "name": "Vito Paolo Pastore",
+          "sameAs": "https://scholar.google.com/citations?user=-boYCXcAAAAJ",
+          "affiliation": {
+            "@id": "https://malga-vision.github.io/Landmarks-Hip-Conditions-AcademicPage/#unige"
+          }
+        },
+        {
+          "@type": "Person",
+          "name": "Francesca Odone",
+          "sameAs": "https://scholar.google.com/citations?user=riK7DscAAAAJ",
+          "affiliation": {
+            "@id": "https://malga-vision.github.io/Landmarks-Hip-Conditions-AcademicPage/#unige"
+          }
+        },
+        {
+          "@type": "Person",
+          "name": "Siôn Glyn-Jones",
+          "sameAs": "https://scholar.google.com/citations?user=LNqbJ9sAAAAJ",
+          "affiliation": {
+            "@type": "Organization",
+            "name": "Nuffield Department of Orthopaedics, Rheumatology and Musculoskeletal Sciences, University of Oxford"
+          }
+        },
+        {
+          "@type": "Person",
+          "name": "Irina Voiculescu",
+          "sameAs": "https://scholar.google.com/citations?user=W6Jwb1UAAAAJ",
+          "affiliation": {
+            "@type": "Organization",
+            "name": "Department of Computer Science, University of Oxford"
+          }
+        }
+      ],
+      "datePublished": "2026-04-08",
+      "inLanguage": "en",
+      "isAccessibleForFree": true,
+      "keywords": [
+        "anatomical landmark detection",
+        "femoroacetabular impingement",
+        "FAI",
+        "hip",
+        "MRI",
+        "X-ray",
+        "cross-modality validation",
+        "alpha angle",
+        "LCE angle",
+        "heatmap regression",
+        "UNet++",
+        "ISBI 2026"
+      ],
+      "image": "https://malga-vision.github.io/Landmarks-Hip-Conditions-AcademicPage/static/images/social_card.jpg",
+      "url": "https://malga-vision.github.io/Landmarks-Hip-Conditions-AcademicPage/",
+      "mainEntityOfPage": "https://malga-vision.github.io/Landmarks-Hip-Conditions-AcademicPage/",
+      "identifier": [
+        {
+          "@type": "PropertyValue",
+          "propertyID": "DOI",
+          "value": "10.1109/ISBI61048.2026.11515938"
+        },
+        {
+          "@type": "PropertyValue",
+          "propertyID": "arXiv",
+          "value": "2601.18555"
+        }
+      ],
+      "sameAs": [
+        "https://doi.org/10.1109/ISBI61048.2026.11515938",
+        "https://ieeexplore.ieee.org/document/11515938",
+        "https://arxiv.org/abs/2601.18555"
+      ],
+      "encoding": {
+        "@type": "MediaObject",
+        "contentUrl": "https://arxiv.org/pdf/2601.18555",
+        "encodingFormat": "application/pdf"
+      },
+      "pagination": "1-4",
+      "isPartOf": {
+        "@type": "Book",
+        "name": "2026 IEEE 23rd International Symposium on Biomedical Imaging (ISBI)",
+        "publisher": {
+          "@type": "Organization",
+          "name": "IEEE"
+        }
+      },
+      "publication": {
+        "@type": "PublicationEvent",
+        "name": "ISBI 2026",
+        "location": "London, United Kingdom",
+        "startDate": "2026-04-08",
+        "endDate": "2026-04-11"
+      },
+      "workExample": {
+        "@id": "https://malga-vision.github.io/Landmarks-Hip-Conditions-AcademicPage/#code"
+      }
+    },
+    {
+      "@type": "SoftwareSourceCode",
+      "@id": "https://malga-vision.github.io/Landmarks-Hip-Conditions-AcademicPage/#code",
+      "name": "Landmarks-Hip-Conditions",
+      "codeRepository": "https://github.com/Malga-Vision/Landmarks-Hip-Conditions",
+      "programmingLanguage": "Python",
+      "isPartOf": {
+        "@id": "https://malga-vision.github.io/Landmarks-Hip-Conditions-AcademicPage/#article"
+      }
+    },
+    {
+      "@type": "Organization",
+      "@id": "https://malga-vision.github.io/Landmarks-Hip-Conditions-AcademicPage/#unige",
+      "name": "MaLGa Center, DIBRIS, University of Genoa"
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://malga-vision.github.io/Landmarks-Hip-Conditions-AcademicPage/#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What does the ISBI 2026 paper on automated hip landmark detection study?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "It presents the first cross-modality validation of automated hip landmark detection between X-ray and MRI for femoroacetabular impingement (FAI) assessment. A heatmap regression network localises four landmarks (femoral head centre FHC, neck-axis point NA, lateral acetabular edge LAE and lateral cam point LCP), from which the α-angle (cam morphology) and the lateral centre-edge (LCE) angle are computed. The paper was published at the 2026 IEEE 23rd International Symposium on Biomedical Imaging (ISBI)."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What data was used?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "A matched cohort of 89 patients from the FAIT trial (collected at Oxford University) with paired anteroposterior pelvic X-rays and T1-weighted coronal hip MRI (20 slices, 3.3 mm spacing). MRI annotations are standardised to the middle slice (index 10). The 65:10:25 train:validation:test split, balanced across α-angle distributions, yields 105:17:40 images (57:8:24 patients)."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Which model is used?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "A UNet++ with an ImageNet-initialised ResNet18 encoder, trained independently on MRI and X-ray with Gaussian target heatmaps, a negative log-likelihood loss on 512×512 inputs, and test-time augmentation. In the ablation it outperforms UNet++ (VGG16), UNet (MiT-B1) and DPT variants on MRI."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is automated landmark detection on MRI as accurate as on X-ray?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. Over three runs the overall mean radial error is 2.98±0.23 mm on MRI and 3.02±0.10 mm on X-ray. For cam-type impingement screening (α > 65°) both modalities reach 87.5% accuracy with 100% specificity and 54.55% sensitivity. The LCE-angle shows ICC(2,1) of 0.82 on X-ray and 0.73 on MRI, and MRI has narrower Bland-Altman limits of agreement for the LCE-angle (±10.5° vs. ±21.6°)."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is the code available?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. The code is released at https://github.com/Malga-Vision/Landmarks-Hip-Conditions and the paper is available on arXiv (2601.18555) and IEEE Xplore (DOI 10.1109/ISBI61048.2026.11515938)."
+          }
+        }
+      ]
+    }
+  ]
+}
+  </script>
+
+  <link rel="icon" type="image/svg+xml" href="static/images/favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="static/css/bulma.min.css">
-  <link rel="stylesheet" href="static/css/bulma-carousel.min.css">
-  <link rel="stylesheet" href="static/css/bulma-slider.min.css">
   <link rel="stylesheet" href="static/css/fontawesome.all.min.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
   <link rel="stylesheet" href="static/css/index.css">
-
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script src="https://documentcloud.adobe.com/view-sdk/main.js"></script>
   <script defer src="static/js/fontawesome.all.min.js"></script>
-  <script src="static/js/bulma-carousel.min.js"></script>
-  <script src="static/js/bulma-slider.min.js"></script>
-  <script src="static/js/index.js"></script>
 </head>
 <body>
 
@@ -80,9 +291,9 @@
                 </span>
 
                 <span class="link-block">
-                  <a href="#" target="_blank" class="external-link button is-normal is-rounded is-dark" onclick="alert('Accepted at: ISBI 2026');return false;">
+                  <a href="https://doi.org/10.1109/ISBI61048.2026.11515938" target="_blank" class="external-link button is-normal is-rounded is-dark">
                     <span class="icon"><i class="fas fa-calendar-check"></i></span>
-                    <span>ISBI 2026 — Accepted</span>
+                    <span>IEEE Xplore (ISBI 2026)</span>
                   </a>
                 </span>
               </div>
@@ -100,8 +311,8 @@
       <div class="hero-body">
         <div class="columns is-centered">
           <div class="column">
-            <img src="static/images/mri_grid_result_24_FT1122-BL-ACQ006-SLICE010--FT1122-MRI_Hip_Rt-20150319--RT_Cor_T1_drive-MR-601-066.png" alt="Teaser: MRI landmark detection" style="width:100%">
-            <img src="static/images/xray_grid_result_24_FT1122-BL-ACQ006-SLICE010--FT1122-MRI_Hip_Rt-20150319--RT_Cor_T1_drive-MR-601-066.png" alt="Teaser: X-ray landmark detection" style="width:100%; margin-top:0.5rem;">
+            <img src="static/images/mri_grid_web.jpg" width="1800" height="625" alt="Automated landmark detection on a coronal T1-weighted hip MRI slice: predicted landmark heatmaps, alpha angle and LCE angle, predicted (green) versus ground truth (red)" style="width:100%; height:auto;">
+            <img src="static/images/xray_grid_web.jpg" width="1800" height="625" alt="Automated landmark detection on the paired anteroposterior pelvic X-ray of the same hip: predicted landmark heatmaps, alpha angle and LCE angle, predicted (green) versus ground truth (red)" style="width:100%; height:auto; margin-top:0.5rem;">
             <p class="has-text-centered" style="margin-top:0.5rem; font-size:0.9rem; color:#666;">
               <b>Figure 1:</b> FAI assessment from paired T1 MRI (top) and X-ray (bottom). The α-angle and LCE angle quantify femoral head asphericity and acetabular coverage, respectively. Our study confirms that automated landmark detection achieves equivalent accuracy across modalities, confirming the feasibility of MRI landmark detection.
             </p>
@@ -466,7 +677,7 @@
       <div class="columns is-centered" style="margin-top:1rem;">
         <div class="column">
           <h3 class="title is-4 has-text-centered">Figure 2: Paired X-ray and MRI Example</h3>
-          <img src="static/images/progressive_split_view_grid.png" alt="Paired X-ray and MRI with landmarks" style="width:100%">
+          <img src="static/images/progressive_split_view_grid_web.jpg" width="1800" height="612" loading="lazy" alt="Paired anteroposterior pelvic X-ray and T1-weighted MRI (slice 10) of the same subject with the FHC, NA, LAE and LCP hip landmarks annotated" style="width:100%; height:auto;">
           <p class="has-text-centered" style="margin-top:0.5rem; font-size:0.9rem; color:#666;">
             Example of paired anteroposterior pelvic X-ray and corresponding T1-weighted MRI (slice 10) from the same subject, showing annotated landmarks: femoral head centre (FHC), neck-axis point (NA), lateral acetabular edge (LAE), and lateral cam point (LCP), illustrating their spatial correspondence across modalities.
           </p>
@@ -477,7 +688,7 @@
       <div class="columns is-centered" style="margin-top:2rem;">
         <div class="column">
           <h3 class="title is-4 has-text-centered">Figure 3: Bland-Altman Agreement Analysis</h3>
-          <img src="static/images/bland-altman.png" alt="Bland-Altman plots" style="width:100%">
+          <img src="static/images/bland-altman_web.png" width="1800" height="1588" loading="lazy" alt="Bland-Altman plots of predicted versus ground-truth alpha angle and LCE angle for MRI (a) and X-ray (b), with mean bias and 95% limits of agreement" style="width:100%; height:auto;">
           <p class="has-text-centered" style="margin-top:0.5rem; font-size:0.9rem; color:#666;">
             Bland--Altman plots comparing predicted and ground-truth α- (left) and LCE-angles (right) for MRI (a) and X-ray (b). Each plot shows the mean of the two measurements on the x-axis and their difference on the y-axis; dashed blue line indicates mean bias and red ones mark the 95% limits of agreement (LoA).
           </p>
@@ -500,16 +711,71 @@
     </div>
   </section>
 
+  <!-- FAQ -->
+  <section class="section" id="faq">
+    <div class="container is-max-desktop content">
+      <h2 class="title">Frequently asked questions</h2>
+          <h3 class="title is-5" style="margin-top:1.2rem;">What does the ISBI 2026 paper on automated hip landmark detection study?</h3>
+          <p>It presents the first cross-modality validation of automated hip landmark detection between X-ray and MRI for femoroacetabular impingement (FAI) assessment. A heatmap regression network localises four landmarks (femoral head centre FHC, neck-axis point NA, lateral acetabular edge LAE and lateral cam point LCP), from which the α-angle (cam morphology) and the lateral centre-edge (LCE) angle are computed. The paper was published at the 2026 IEEE 23rd International Symposium on Biomedical Imaging (ISBI).</p>
+          <h3 class="title is-5" style="margin-top:1.2rem;">What data was used?</h3>
+          <p>A matched cohort of 89 patients from the FAIT trial (collected at Oxford University) with paired anteroposterior pelvic X-rays and T1-weighted coronal hip MRI (20 slices, 3.3 mm spacing). MRI annotations are standardised to the middle slice (index 10). The 65:10:25 train:validation:test split, balanced across α-angle distributions, yields 105:17:40 images (57:8:24 patients).</p>
+          <h3 class="title is-5" style="margin-top:1.2rem;">Which model is used?</h3>
+          <p>A UNet++ with an ImageNet-initialised ResNet18 encoder, trained independently on MRI and X-ray with Gaussian target heatmaps, a negative log-likelihood loss on 512×512 inputs, and test-time augmentation. In the ablation it outperforms UNet++ (VGG16), UNet (MiT-B1) and DPT variants on MRI.</p>
+          <h3 class="title is-5" style="margin-top:1.2rem;">Is automated landmark detection on MRI as accurate as on X-ray?</h3>
+          <p>Yes. Over three runs the overall mean radial error is 2.98±0.23 mm on MRI and 3.02±0.10 mm on X-ray. For cam-type impingement screening (α &gt; 65°) both modalities reach 87.5% accuracy with 100% specificity and 54.55% sensitivity. The LCE-angle shows ICC(2,1) of 0.82 on X-ray and 0.73 on MRI, and MRI has narrower Bland-Altman limits of agreement for the LCE-angle (±10.5° vs. ±21.6°).</p>
+          <h3 class="title is-5" style="margin-top:1.2rem;">Is the code available?</h3>
+          <p>Yes. The code is released at <a href="https://github.com/Malga-Vision/Landmarks-Hip-Conditions">https://github.com/Malga-Vision/Landmarks-Hip-Conditions</a> and the paper is available on <a href="https://arxiv.org/abs/2601.18555">arXiv (2601.18555)</a> and IEEE Xplore (<a href="https://doi.org/10.1109/ISBI61048.2026.11515938">DOI 10.1109/ISBI61048.2026.11515938</a>).</p>
+    </div>
+  </section>
+
+  <!-- Related work -->
+  <section class="section hero is-light" id="related">
+    <div class="container is-max-desktop content">
+      <h2 class="title">Related work from our lab</h2>
+      <ul>
+        <li>
+          <b>PACER</b>: Curriculum Self-Training with Spatial Uncertainty for Pseudo-Label Selection in Few-Shot Anatomical Landmark Detection. <i>WACV 2027</i>.
+          [<a href="https://malga-vision.github.io/PACER-wacv27-AcademicPage/">Project page</a>]
+          [<a href="https://github.com/Malga-Vision/PACER-wacv27">Code</a>]
+        </li>
+        <li>
+          <b>CDPM-Align</b>: Multi-Scale Guidance-Aligned Diffusion Pretraining for Robust Few-Shot Anatomical Landmark Detection. <i>MICCAI 2026</i>.
+          [<a href="https://malga-vision.github.io/CDPM-Align_AcademicPage/">Project page</a>]
+          [<a href="https://github.com/Malga-Vision/CDPM-Align">Code</a>]
+        </li>
+        <li>
+          <b>Diffusing DeBias</b>: Synthetic Bias Amplification for Model Debiasing. <i>NeurIPS 2025</i>.
+          [<a href="https://malga-vision.github.io/DiffusingDeBias-AcademicPage/">Project page</a>]
+        </li>
+        <li>
+          <b>FairerXRay</b>: Are X-ray Landmark Detection Models Fair? A Preliminary Assessment and Mitigation Strategy. <i>ICCV 2025 Workshop</i>.
+          [<a href="https://malga-vision.github.io/FairerXRay-LandmarkDetection-AcademicPage/">Project page</a>]
+        </li>
+        <li>
+          Self-Supervised Pre-Training with Diffusion Model for Few-Shot Landmark Detection in X-ray Images. <i>WACV 2025</i>.
+          [<a href="https://malga-vision.github.io/DiffusionXray-FewShot-LandmarkDetection-AcademicPage/">Project page</a>]
+        </li>
+        <li>
+          Is In-Domain Data Beneficial in Transfer Learning for Landmarks Detection in X-ray Images? <i>ISBI 2024</i>.
+          [<a href="https://malga-vision.github.io/InDomain-TransferLearning-LandmarkDetection-AcademicPage/">Project page</a>]
+        </li>
+      </ul>
+    </div>
+  </section>
+
   <!-- BibTeX / Citation -->
   <section class="section" id="BibTeX">
     <div class="container is-max-desktop content">
       <h2 class="title">Citation</h2>
       <h3 class="title is-5">BibTeX</h3>
       <pre><code>@inproceedings{divia2026hip,
-  title={Automated Landmark Detection for assessing hip conditions: A Cross-Modality Validation of MRI versus X-ray},
+  title={Automated Landmark Detection for Assessing Hip Conditions: A Cross-Modality Validation of {MRI} versus {X-ray}},
   author={Di Via, Roberto and Pastore, Vito Paolo and Odone, Francesca and Glyn-Jones, Si{\^o}n and Voiculescu, Irina},
-  booktitle={IEEE International Symposium on Biomedical Imaging (ISBI)},
-  year={2026}
+  booktitle={2026 IEEE 23rd International Symposium on Biomedical Imaging (ISBI)},
+  pages={1--4},
+  year={2026},
+  publisher={IEEE},
+  doi={10.1109/ISBI61048.2026.11515938}
 }</code></pre>
       
       <h3 class="title is-5" style="margin-top:2rem;">APA Citation</h3>
@@ -517,7 +783,7 @@
         <p>
           Di Via, R., Pastore, V. P., Odone, F., Glyn-Jones, S., & Voiculescu, I. (2026). 
           Automated Landmark Detection for assessing hip conditions: A Cross-Modality Validation of MRI versus X-ray. 
-          In <i>IEEE International Symposium on Biomedical Imaging (ISBI)</i>.
+          In <i>2026 IEEE 23rd International Symposium on Biomedical Imaging (ISBI)</i> (pp. 1–4). IEEE. <a href="https://doi.org/10.1109/ISBI61048.2026.11515938">https://doi.org/10.1109/ISBI61048.2026.11515938</a>
         </p>
       </div>
     </div>

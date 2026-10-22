@@ -1,0 +1,28 @@
+# Automated Landmark Detection for Assessing Hip Conditions: MRI vs. X-ray (ISBI 2026)
+
+> Automated Landmark Detection for Assessing Hip Conditions: A Cross-Modality Validation of MRI Versus X-Ray. Roberto Di Via, Vito Paolo Pastore, Francesca Odone, Siôn Glyn-Jones, Irina Voiculescu (MaLGa Center, DIBRIS, University of Genoa; Nuffield Department of Orthopaedics, Rheumatology and Musculoskeletal Sciences, University of Oxford; Department of Computer Science, University of Oxford). 2026 IEEE 23rd International Symposium on Biomedical Imaging (ISBI), pp. 1-4. DOI 10.1109/ISBI61048.2026.11515938.
+
+This is the first cross-modality validation of automated hip landmark detection between X-ray and MRI for femoroacetabular impingement (FAI) assessment. A UNet++ with an ImageNet-initialised ResNet18 encoder is trained by heatmap regression (Gaussian targets, NLL loss, 512x512 inputs, test-time augmentation) to localise four landmarks (femoral head centre, neck-axis point, lateral acetabular edge, lateral cam point), from which the alpha angle and the lateral centre-edge (LCE) angle are computed. Data: 89 patients from the FAIT trial (Oxford) with paired AP pelvic X-rays and T1-weighted coronal MRI (middle slice, index 10).
+
+Key results (mean ± std over three runs):
+- Overall mean radial error: 2.98±0.23 mm on MRI vs. 3.02±0.10 mm on X-ray.
+- SDR@2/3/4 mm: MRI 58.3/73.5/83.1%, X-ray 62.5/79.2/85.4%.
+- Cam-type impingement screening (alpha > 65°): 87.5% accuracy on both modalities, 100% specificity, 54.55% sensitivity.
+- LCE-angle ICC(2,1): 0.82 (X-ray), 0.73 (MRI); MRI has narrower Bland-Altman limits of agreement for LCE (±10.5° vs. ±21.6°).
+
+## Links
+- [Paper (arXiv PDF)](https://arxiv.org/pdf/2601.18555)
+- [Paper (IEEE Xplore)](https://doi.org/10.1109/ISBI61048.2026.11515938)
+- [Project page](https://malga-vision.github.io/Landmarks-Hip-Conditions-AcademicPage/)
+- [Code](https://github.com/Malga-Vision/Landmarks-Hip-Conditions)
+
+## Citation
+@inproceedings{divia2026hip,
+  title     = {Automated Landmark Detection for Assessing Hip Conditions: A Cross-Modality Validation of {MRI} versus {X-ray}},
+  author    = {Di Via, Roberto and Pastore, Vito Paolo and Odone, Francesca and Glyn-Jones, Si{\^o}n and Voiculescu, Irina},
+  booktitle = {2026 IEEE 23rd International Symposium on Biomedical Imaging (ISBI)},
+  pages     = {1--4},
+  year      = {2026},
+  publisher = {IEEE},
+  doi       = {10.1109/ISBI61048.2026.11515938}
+}
